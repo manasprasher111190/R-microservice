@@ -37,6 +37,8 @@ dependencies {
     testCompile("junit:junit")
     compile files('/home/manas/Downloads/RserveEngine.jar')
     compile files('/home/manas/Downloads/REngine.jar')
+    compile group: 'com.google.guava', name: 'guava', version: '12.0'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.2.3'
 }
 
 task wrapper(type: Wrapper) {
