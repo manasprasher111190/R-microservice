@@ -3,23 +3,23 @@
         "oneD": {
             "command": [
                 {
-                "id": "1",
-                "description": "Histogram",
-                "params": "data,xmin,xmax,ymin,ymax",
-                "template": "hist(x=%s,xlim=c(%s,%s),ylim=c(%s,%s))",
+                "id": "0",
+                "description": "BiPolar",
+                "params": "datafileName,columnKey,xmin,xmax,ymin,ymax",
+                "template": "hist(x=%s$%s,xlim=c(%s,%s),ylim=c(%s,%s))",
                   "alternative": {
                     "command": [
                         {
                             "id": "0",
                             "description": "Scatter Plot",
-                            "params": "x,y",
-                            "template": "plot(x=%s,y=%s)"
+                            "params": "datafileName,xColumnKey,datafileName,yColumnKey",
+                            "template": "plot(x=%s$%s,y=%s$%s)"
                         },
                         {
                             "id": "0",
                             "description": "Histogram",
-                            "params": "data,xmin,xmax,ymin,ymax",
-                            "template": "hist(x=%s,xlim=c(%s,%s),ylim=c(%s,%s))"
+                            "params": "datafileName,columnkey,xmin,xmax,ymin,ymax",
+                            "template": "hist(x=%s$%s,xlim=c(%s,%s),ylim=c(%s,%s))"
                         }
                     ]
                 }
@@ -31,21 +31,21 @@
                 {
                 "id": "1",
                 "description": "Scatter Plot",
-                "params": "x,y",
-                "template": "plot(x=%s,y=%s)",
+                "params": "datafileName,xColumnKey,yColumnKey",
+                "template": "plot(x=%s$%s,y=%s$%s)",
                   "alternative": {
                     "command": [
                         {
                             "id": "0",
                             "description": "Scatter Plot",
-                            "params": "x,y",
-                            "template": "plot(x=%s,y=%s)"
+                            "params": "xColumnKey,yColumnKey",
+                            "template": "plot(x=data$%s,y=data$%s)"
                         },
                         {
                             "id": "0",
                             "description": "Histogram",
-                            "params": "data,xmin,xmax,ymin,ymax",
-                            "template": "hist(x=%s,xlim=c(%s,%s),ylim=c(%s,%s))"
+                            "params": "datafileName,columnkey,xmin,xmax,ymin,ymax",
+                            "template": "hist(x=%s$%s,xlim=c(%s,%s),ylim=c(%s,%s))"
                         }
                     ]
                 }
@@ -56,7 +56,7 @@
         "threeD": {
             "command": [
                 {
-                "id": "",
+                "id": "2",
                 "description": "",
                 "params": "",
                 "template": "",

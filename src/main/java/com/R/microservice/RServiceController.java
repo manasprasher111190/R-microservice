@@ -56,7 +56,7 @@ public class RServiceController {
 				return new byte[0];
 			}
 			String filePathString = Paths.get(FileUploadController.SERVER_DATA_DIR, file).toString();
-			connection.parseAndEval("data = read.csv("+"'"+filePathString+".csv')");
+			connection.parseAndEval(file+" = read.csv("+"'"+filePathString+".csv')");
 			connection.parseAndEval(template);
 			
 			connection.parseAndEval("dev.off()");
