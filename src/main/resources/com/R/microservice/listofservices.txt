@@ -5,6 +5,7 @@
                 {
                 "id": "0",
                 "description": "BiPolar",
+                "service": "R",
                 "params": "datafileName,columnKey,xmin,xmax,ymin,ymax",
                 "template": "hist(x=%s$%s,xlim=c(%s,%s),ylim=c(%s,%s))",
                   "alternative": {
@@ -12,12 +13,14 @@
                         {
                             "id": "0",
                             "description": "Scatter Plot",
-                            "params": "datafileName,xColumnKey,datafileName,yColumnKey",
+                            "service": "R",
+                            "params": "datafilename,xColumnKey,datafilename,yColumnKey",
                             "template": "plot(x=%s$%s,y=%s$%s)"
                         },
                         {
                             "id": "0",
                             "description": "Histogram",
+                            "service": "R",
                             "params": "datafileName,columnkey,xmin,xmax,ymin,ymax",
                             "template": "hist(x=%s$%s,xlim=c(%s,%s),ylim=c(%s,%s))"
                         }
@@ -31,19 +34,22 @@
                 {
                 "id": "1",
                 "description": "Scatter Plot",
-                "params": "datafileName,xColumnKey,yColumnKey",
+                "service": "R",
+                "params": "datafileName,xColumnKey,datafileName,yColumnKey",
                 "template": "plot(x=%s$%s,y=%s$%s)",
                   "alternative": {
                     "command": [
                         {
                             "id": "0",
                             "description": "Scatter Plot",
+                            "service": "R",
                             "params": "xColumnKey,yColumnKey",
                             "template": "plot(x=data$%s,y=data$%s)"
                         },
                         {
                             "id": "0",
                             "description": "Histogram",
+                            "service": "R",
                             "params": "datafileName,columnkey,xmin,xmax,ymin,ymax",
                             "template": "hist(x=%s$%s,xlim=c(%s,%s),ylim=c(%s,%s))"
                         }
@@ -58,6 +64,7 @@
                 {
                 "id": "2",
                 "description": "",
+                "service": "R",
                 "params": "",
                 "template": "",
                   "alternative": {
