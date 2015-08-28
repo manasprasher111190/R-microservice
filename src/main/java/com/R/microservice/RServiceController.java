@@ -73,6 +73,49 @@ public class RServiceController {
 		return new byte[0];
 	}
 	
+	@RequestMapping(value = "/testQuery")
+	public String testQuery(@RequestParam(value = "template", required=true)String template) {
+		RConnection connection = null;
+		try {
+			String device = "png";
+			/*
+			 * Create a connection to Rserve instance running on default port
+			 * 6311
+			 */
+			connection = new RConnection();
+			if (connection.parseAndEval(
+					"suppressWarnings(require('Cairo',quietly=TRUE))")
+					.asInteger() > 0) {
+				device = "CairoPNG";
+			} else {
+				System.out
+						.println("(Consider installing Cairo.package for better bitmap output)");
+			}
+			
+			String debugCairoString = "try("+device+"('test.png',quality=90))";
+			REXP expression = connection.eval(debugCairoString);
+			if (expression.inherits("try-error")) {
+				System.out.println("Can't open" + device + "graphics device:\n"
+						+ expression.asString());
+				REXP warning = connection
+						.eval("if (exists('last.warning') && length(last.warning)>0) names(last.warning)[1] else 0");
+				if (warning.isString())
+					System.out.println(warning.asString());
+			}
+			connection.parseAndEval(template);
+			
+			connection.parseAndEval("dev.off()");
+
+		} catch (RserveException e) {
+			return e.getMessage();
+		} catch (REXPMismatchException e) {
+			return e.getMessage();
+		} catch (REngineException e) {
+			return e.getMessage();
+		}
+      return "NONE";
+	}
+	
 	@RequestMapping(value = "/listOfServices")
 	public String listOfServices() throws IOException{
 		
